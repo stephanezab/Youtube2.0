@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack, colors } from '@mui/material'
 import { categories } from '../utils/constants'
 
-const selectCategory = "New"
+const selectCategory = "New" // to look at
 
 const Sidebar = () => {
     return (
@@ -21,7 +21,9 @@ const Sidebar = () => {
                 key={category.name}   
                 >
                     <span style={{color: category.name === selectCategory ? "white": "red", marginRight: "15px"}}>{category.icon}</span>
-                    <span>{category.name}</span>
+
+                    <span style={{opacity: category.name === selectCategory ? "1": "0.8"}}>{category.name}
+                    </span>
                 </button>
             ))}
 
