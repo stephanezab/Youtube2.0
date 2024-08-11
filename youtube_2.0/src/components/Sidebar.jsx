@@ -1,6 +1,8 @@
 import React from 'react'
-import { Stack } from '@mui/material'
+import { Stack, colors } from '@mui/material'
 import { categories } from '../utils/constants'
+
+const selectCategory = "New"
 
 const Sidebar = () => {
     return (
@@ -13,8 +15,12 @@ const Sidebar = () => {
             }}
         >
             {categories.map((category)=>(
-                <button>
-                    <span>{category.icon}</span>
+                <button
+                className='category-btn'
+                style={{background: category.name === selectCategory && "#FC1503"}}
+                key={category.name}   
+                >
+                    <span style={{color: category.name === selectCategory ? "white": "red", marginRight: "15px"}}>{category.icon}</span>
                     <span>{category.name}</span>
                 </button>
             ))}
