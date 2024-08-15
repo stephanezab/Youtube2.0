@@ -8,7 +8,7 @@ import { demoThumbnailUrl, demoVideoUrl, demoVideoTitle, demoChannelUrl, demoCha
 const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
 
     return (
-        <Card>
+        <Card sx={{ width: {md: '320px', xs: '100%'}, boxShadow: 'none', borderRadius: 0 }}>
             <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
 
                 <CardMedia
@@ -29,6 +29,8 @@ const VideoCard = ({ video: { id: { videoId }, snippet } }) => {
                 <Link to={snippet?.channelId ? `/channel/${snippet?.channelId}`: demoChannelUrl}>
                     <Typography variant='subtitle1' fontWeight='bold' color='#FFF'>
                         {snippet?.channelTitle || demoChannelTitle}
+
+                        <CheckCircle sx={{ fontSize: 12, color: 'gray', ml: '5px'}}/>
                         
                     </Typography>
                 </Link>
