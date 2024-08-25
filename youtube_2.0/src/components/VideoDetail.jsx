@@ -13,8 +13,12 @@ const VideoDetail = () => {
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) => setVideoDetail(data.items[0]))
   }, [id])
+  
+
+  if (!videoDetail) return <div></div>
+
   console.log(videoDetail)
-  // const { snippet: { title, channelId, channelTitle }, statistics:{ viewCount, likeCount }} = videoDetail fix errooorrr
+  const { snippet: { title, channelId, channelTitle }, statistics:{ viewCount, likeCount }} = videoDetail
   
   return (
     <Box minHeight='95vh'>
@@ -25,7 +29,7 @@ const VideoDetail = () => {
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`}
             className='react-player' controls/>
             <Typography color="#fff" variant='h5' fontWeight='bold' p={2}>
-              {videoDetail?.snippet.title}
+              {title}
             </Typography>
 
           </Box>
